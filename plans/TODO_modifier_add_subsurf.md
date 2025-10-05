@@ -7,3 +7,5 @@
 - Tests (OK + correction):
 - Cas limites:
 Notes: Entrées: object, levels\nSorties: Subsurf appliqué (data API si possible)
+
+PR: init branche feat/intent-modifier_add_subsurf
