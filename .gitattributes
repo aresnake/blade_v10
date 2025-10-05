@@ -1,0 +1,16 @@
+﻿* text=auto eol=lf
+
+# Markdown & code commun
+*.md text eol=lf
+*.txt text eol=lf
+*.py text eol=lf
+*.ps1 text eol=lf
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+
+# Binaires
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.zip binary
