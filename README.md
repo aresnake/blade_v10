@@ -1,2 +1,5 @@
-# blade_v10
-v10
+﻿# Blade v10
+
+Base propre du dépôt Blade v10.
+Objectif : stabiliser l’architecture + préparer v11.
+Auteur : Adrien / ARES
