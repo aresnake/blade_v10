@@ -1,0 +1,12 @@
+﻿# tests/intents_samples.yaml (exemples)
+- intent: object.create_cube
+  params: { radius: 1.0 }
+
+- intent: object.create_plane
+  params: { size: 2.0 }
+
+- intent: object.create_uv_sphere
+  params: { radius: 0.5 }
+
+- intent: object.create_cube
+  params: { radius: 1.0, collection: "ENV_Objects" }  # collection assurée + link
