@@ -1,13 +1,21 @@
 ﻿# -*- coding: utf-8 -*-
 """
 Intent: scene.render_background_mp4
-Configure un rendu MP4 (H.264) sans lancer l'animation par défaut.
+Configure un rendu MP4 (H.264) sans lancer l'anim par défaut.
 """
 import bpy
 import os
 from math import floor
 
 def _log(msg): print(f"[Blade v10] scene_render_background_mp4: {msg}")
+
+def _rgb3(col):
+    # Accepte 3 ou 4 composantes, renvoie toujours 3 (RGB)
+    if col is None: return (0.0, 0.0, 0.0)
+    try:
+        return (float(col[0]), float(col[1]), float(col[2]))
+    except Exception:
+        return (0.0, 0.0, 0.0)
 
 def run(output_path: str = "",
         fps: int = 30,
@@ -26,6 +34,7 @@ def run(output_path: str = "",
     sc.frame_start = 1
     sc.frame_end = max(1, floor(fps * max(0.01, float(duration_sec))))
 
+    # EEVEE Next si possible, sinon EEVEE
     try:
         sc.render.engine = "BLENDER_EEVEE_NEXT"
     except Exception:
@@ -43,7 +52,7 @@ def run(output_path: str = "",
 
     if sc.world is None:
         sc.world = bpy.data.worlds.new("World")
-    sc.world.color = tuple(background_color[:3]) + (1.0,)
+    sc.world.color = _rgb3(background_color)  # ⚠️ 3 floats, pas 4
 
     sc.render.filepath = output_path
 
