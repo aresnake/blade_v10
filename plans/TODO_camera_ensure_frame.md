@@ -7,3 +7,5 @@
 - Tests (OK + correction):
 - Cas limites:
 Notes: Entrées: target, distance, height\nSorties: caméra ok + TrackTo strict
+
+PR: init branche feat/intent-camera_ensure_frame
