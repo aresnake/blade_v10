@@ -7,3 +7,5 @@
 - Tests (OK + correction):
 - Cas limites:
 Notes: Entrées: size\nSorties: plane lié à la scène
+
+PR: init branche feat/intent-object_create_plane
