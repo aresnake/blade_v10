@@ -7,3 +7,5 @@
 - Tests (OK + correction):
 - Cas limites:
 Notes: Entrées: radius\nSorties: sphere liée à la scène
+
+PR: init branche feat/intent-object_create_uv_sphere
