@@ -28,12 +28,10 @@ def _safe_call(fn, **kwargs):
     try:
         ret = fn(**kwargs)
         print("[Blade v10 UI] OK:", ret)
-        bpy.ops.screen.info_log(message="Blade: OK")
         return {'FINISHED'}
     except Exception as e:
         print("[Blade v10 UI] ERROR:", e)
         import traceback; traceback.print_exc()
-        self_report = getattr(bpy.types.Operator, "report", None)
         return {'CANCELLED'}
 
 class BLADEV10_OT_create_cube(bpy.types.Operator):

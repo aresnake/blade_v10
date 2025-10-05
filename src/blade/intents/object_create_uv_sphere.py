@@ -1,7 +1,4 @@
-﻿# Blade v10 — intent: object.create_uv_sphere
-# Data-API only via bmesh
-
-import bpy
+﻿import bpy
 import bmesh
 
 def _ensure_collection(name: str | None, scene: bpy.types.Scene) -> bpy.types.Collection:
@@ -21,7 +18,14 @@ def run(radius: float = 0.5, segments: int = 32, rings: int = 16,
 
     mesh = bpy.data.meshes.new(name + "_ME")
     bm = bmesh.new()
-    bmesh.ops.create_uvsphere(bm, u_segments=max(8, int(segments)), v_segments=max(4, int(rings)), diameter=radius*2.0)
+    u = max(8, int(segments))
+    v = max(4, int(rings))
+    try:
+        # Blender 3.x/4.x récents
+        bmesh.ops.create_uvsphere(bm, u_segments=u, v_segments=v, radius=float(radius))
+    except TypeError:
+        # Fallback anciennes signatures
+        bmesh.ops.create_uvsphere(bm, u_segments=u, v_segments=v, diameter=float(radius) * 2.0)
     bm.to_mesh(mesh)
     bm.free()
 
